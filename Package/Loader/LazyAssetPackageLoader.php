@@ -199,6 +199,9 @@ class LazyAssetPackageLoader implements LazyLoaderInterface
         $realPackage = false;
 
         try {
+        if ($this->verbose) {
+                        $this->io->write('Identifier is : '.print_r($this->identifier,true));
+                    }
             $data = $this->driver->getComposerInformation($this->identifier);
             $valid = is_array($data);
             if ($this->verbose) {
